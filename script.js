@@ -16,6 +16,8 @@
     b.rinse and repeat for go down go left and go up
       they should be occuring cyclically.
 
+    Success: faster than 5.76%, less memory than 100%
+
 */
 
 
