@@ -12,7 +12,22 @@
         set current cell equal to n
         check if we are still able to do so
           if not: set next state to "Go down"
+        if we are, x+1
     b.rinse and repeat for go down go left and go up
       they should be occuring cyclically.
 
 */
+
+
+var n = 3;
+var square= Math.pow(n);
+var grid = []
+for(var i=0;i< n;i++)
+{
+  grid.push([])
+  for(var j=0;j<n;j++)
+  {
+    grid[grid.length-1].push(0);
+  }
+}
+console.log(grid);
