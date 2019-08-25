@@ -19,15 +19,77 @@
 */
 
 
-var n = 3;
-var square= Math.pow(n);
-var grid = []
+var n = 5;
+var square= Math.pow(n,2);
+var grid = [];
+var x = 0;
+var y = 0;
 for(var i=0;i< n;i++)
 {
   grid.push([])
   for(var j=0;j<n;j++)
   {
     grid[grid.length-1].push(0);
+  }
+}
+var state = "goRight" //Our state to go right
+
+for(var i=1;i<=square;i++)
+{
+  console.log(grid, state)
+  grid[y][x] = i;
+  if(state == "goRight")
+  {
+    //If it's okay to go right, then do so
+    if(grid[y][x+1] != undefined || grid[y][x+1] == 0)
+    {
+      console.log(grid[y][x])
+      x+=1;
+    }
+    else
+    {
+      state="goDown"; //otherwise start going down
+      y+=1
+    }
+  }
+  else if(state == "goDown")
+  {
+    //If it's okay to go right, then do so
+    if(grid[y+1] != undefined)
+    {
+      if(grid[y+1][x] == 0)
+        y+=1;
+    }
+    else
+    {
+      state="goLeft"; //otherwise start going down
+      x-=1;
+    }
+  }
+  else if(state == "goLeft")
+  {
+    //If it's okay to go right, then do so
+    if(grid[y][x-1] != undefined || grid[y][x-1] == 0)
+      x-=1;
+    else
+    {
+      state="goUp"; //otherwise start going down
+      y-=1;
+    }
+  }
+  else if(state == "goUp")
+  {
+    //If it's okay to go right, then do so
+    if(grid[y-1] != undefined)
+    {
+      if(grid[y-1][x] == 0)
+        y-=1;
+    }
+    else
+    {
+      state="goRight"; //otherwise start going down
+      x+=1;
+    }
   }
 }
 console.log(grid);
